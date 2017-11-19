@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name="Auto")
+@Autonomous(name="AutoEncoder")
 public class AutoEncoder extends LinearOpMode {
 
     Bot bot = new Bot();
@@ -36,7 +36,7 @@ public class AutoEncoder extends LinearOpMode {
         // wait 'til the drive hits start
         waitForStart();
 
-
+        encoderDrive(DRIVE_SPEED,  48,  48, 5.0);
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
