@@ -23,14 +23,14 @@ public class TeleOpWithArm extends OpMode{
 
         if(straight > 0)
         {
-            bot.ld.setPower(1);
-            bot.rd.setPower(-1);
+            bot.ld.setPower(straight);
+            bot.rd.setPower(straight);
             telemetry.addData("driving straight: ", "true");
         }
         else if(back > 0)
         {
-            bot.ld.setPower(-1);
-            bot.rd.setPower(1);
+            bot.ld.setPower(back * -1);
+            bot.rd.setPower(back * -1);
             telemetry.addData("driving backwards: ", "true");
         }
         else
