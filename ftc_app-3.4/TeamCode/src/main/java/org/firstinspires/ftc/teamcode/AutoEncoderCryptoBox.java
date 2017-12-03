@@ -15,7 +15,7 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
     static final double DRIVE_GEAR_REDUCTION    = 2.0;
     static final double WHEEL_DIAMETER_INCHES   = 5.0;
     static final double COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)
-            / (WHEEL_DIAMETER_INCHES * Math.PI);
+            / (WHEEL_DIAMETER_INCHES * Math.PI) / 2;
 
     static final double DRIVE_SPEED             = 0.6;
     static final double TURN_SPEED              = 0.5;
@@ -36,7 +36,9 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         // wait 'til the drive hits start
         waitForStart();
 
+        encoderDrive(DRIVE_SPEED,  12,  12, 5.0);
 
+        encoderDrive(DRIVE_SPEED,  12,  12, 5.0);
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
