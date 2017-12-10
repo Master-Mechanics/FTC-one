@@ -36,16 +36,16 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         // wait 'til the drive hits start
         waitForStart();
 
-        encoderDrive(DRIVE_SPEED,  12,  12, 5.0);
+        encoderDrive(DRIVE_SPEED,  -12,  12, 10.0);
 
-        encoderDrive(DRIVE_SPEED,  12,  12, 5.0);
+        encoderDrive(DRIVE_SPEED,  12,  -12, 10.0);
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
         int newLeftTarget, newRightTarget;
 
         if(opModeIsActive()) {
-            // finding target position
+            // finding target   position
             newLeftTarget = bot.ld.getCurrentPosition() + (int)(leftInches * COUNTS_PER_INCH);
             newRightTarget = bot.rd.getCurrentPosition() + (int)(rightInches * COUNTS_PER_INCH);
 
