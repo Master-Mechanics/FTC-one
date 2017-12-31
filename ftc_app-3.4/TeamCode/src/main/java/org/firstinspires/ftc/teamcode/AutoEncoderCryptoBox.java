@@ -36,9 +36,16 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         // wait 'til the drive hits start
         waitForStart();
 
-        encoderDrive(DRIVE_SPEED,  -12,  12, 10.0);
+        // jewel
 
-        encoderDrive(DRIVE_SPEED,  12,  -12, 10.0);
+        // read vumark
+
+        // enter loop
+
+        // get block
+
+        // place block in location or
+
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {

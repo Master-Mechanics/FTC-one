@@ -21,6 +21,13 @@ public class TeleOpWithArm extends OpMode{
 
         bot.arm.setPower(gamepad1.left_stick_y * .2);
 
+        double armMovement = gamepad2.right_stick_y;
+        double armExtend = gamepad2.left_stick_y;
+
+        bot.arm.setPower(armMovement);
+
+        bot.extend.setPosition(armExtend);
+
         if(straight > 0)
         {
             bot.ld.setPower(straight);
