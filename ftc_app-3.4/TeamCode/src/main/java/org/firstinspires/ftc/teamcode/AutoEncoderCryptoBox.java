@@ -4,12 +4,15 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
 
 @Autonomous(name="Auto")
 public class AutoEncoderCryptoBox extends LinearOpMode {
 
     Bot bot = new Bot();
+
+    ColorSensor color_sensor;
 
     static final double COUNTS_PER_MOTOR_REV    = 1440;
     static final double DRIVE_GEAR_REDUCTION    = 2.0;
@@ -32,12 +35,33 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         bot.ld.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bot.rd.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
+        bot.color_sensor = hardwareMap.colorSensor.get("color");
 
         // wait 'til the drive hits start
         waitForStart();
 
         // jewel
-
+        if (color_sensor.red() > color_sensor.blue()){
+            bot.rd.setPower(-1.0);
+            bot.ld.setPower(1.0);
+            try {
+                wait(1000l);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            bot.rd.setPower(0.0);
+            bot.ld.setPower(0.0);
+        } else {
+            bot.rd.setPower(1.0);
+            bot.ld.setPower(-1.0);
+            try {
+                wait(1000l);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            bot.rd.setPower(0.0);
+            bot.ld.setPower(0.0);
+        }
         // read vumark
 
         // enter loop
