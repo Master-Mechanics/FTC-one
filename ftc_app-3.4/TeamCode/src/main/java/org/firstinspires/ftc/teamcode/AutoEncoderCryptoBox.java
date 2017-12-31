@@ -42,25 +42,9 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         // jewel
         if (color_sensor.red() > color_sensor.blue()){
-            bot.rd.setPower(-1.0);
-            bot.ld.setPower(1.0);
-            try {
-                wait(1000l);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            bot.rd.setPower(0.0);
-            bot.ld.setPower(0.0);
+            encoderDrive(DRIVE_SPEED, 1, .1, 1.0);
         } else {
-            bot.rd.setPower(1.0);
-            bot.ld.setPower(-1.0);
-            try {
-                wait(1000l);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            bot.rd.setPower(0.0);
-            bot.ld.setPower(0.0);
+            encoderDrive(DRIVE_SPEED, -1, -1, 1.0);
         }
         // read vumark
 
