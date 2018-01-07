@@ -13,9 +13,11 @@ public class Bot {
     public DcMotor ld  = null;
     public DcMotor rd  = null;
     public DcMotor arm = null;
+    public DCMotor arm2 = null;
 
-    public CRServo extend = null;
+
     public Servo clamp = null;
+    public Servo clamp1 = null;
     //public Servo rc = null;
     public Servo jewel  = null;
     public ColorSensor color_sensor = null;
@@ -32,9 +34,11 @@ public class Bot {
         ld = hardwareMap.get(DcMotor.class, "left_drive");
         rd = hardwareMap.get(DcMotor.class, "right_drive");
         arm = hardwareMap.get(DcMotor.class, "front_arm");
+        arm1 = hardwareMap.get(DcMotor.class, "front_arm");
 
         extend = hardwareMap.get(CRServo.class, "extend_servo");
         clamp = hardwareMap.get(Servo.class,  "clamp");
+        clamp1 = hardwareMap.get(Servo.class,  "clamp1");
         //rc = hardwareMap.get(Servo.class, "right_clamp");
         jewel = hardwareMap.get(Servo.class, "jewel_servo");
         color_sensor = hardwareMap.colorSensor.get("color");
@@ -45,5 +49,6 @@ public class Bot {
         rd.setDirection(DcMotorSimple.Direction.FORWARD);
 
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 }
