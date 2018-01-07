@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 
 public class Bot {
 
@@ -17,6 +18,7 @@ public class Bot {
     public Servo clamp = null;
     //public Servo rc = null;
     public Servo jewel  = null;
+    public ColorSensor color_sensor = null;
 
     public ColorSensor colorSensor = null;
 
@@ -35,6 +37,7 @@ public class Bot {
         clamp = hardwareMap.get(Servo.class,  "clamp");
         //rc = hardwareMap.get(Servo.class, "right_clamp");
         jewel = hardwareMap.get(Servo.class, "jewel_servo");
+        color_sensor = hardwareMap.colorSensor.get("color");
 
         colorSensor = hardwareMap.get(ColorSensor.class, "color");
 
