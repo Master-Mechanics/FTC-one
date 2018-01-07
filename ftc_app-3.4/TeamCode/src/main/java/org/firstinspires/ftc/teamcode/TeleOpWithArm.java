@@ -9,7 +9,9 @@ import com.qualcomm.robotcore.util.Range;
 @TeleOp(name="TeleOp w/ Arm")
 public class TeleOpWithArm extends OpMode{
 
-    Bot bot = new Bot();
+    private Bot bot = new Bot();
+
+    private final double g = .3d;
 
     public void init() {
         bot.init(hardwareMap);
@@ -21,12 +23,14 @@ public class TeleOpWithArm extends OpMode{
 
         bot.arm.setPower(gamepad1.left_stick_y * .2);
 
-        double armMovement = gamepad2.right_stick_y;
+        double armMovement = (gamepad2.right_stick_y == 0) ? g : gamepad2.right_stick_y;
         double armExtend = gamepad2.left_stick_y;
 
         bot.arm.setPower(armMovement);
+        telemetry.addData("Arm Power: ", armMovement);
 
-        bot.extend.setPosition(armExtend);
+        bot.extend.setPower(armExtend);
+        telemetry.addData("Arm Extension Power: ", armExtend);
 
         if(straight > 0)
         {

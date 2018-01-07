@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 @Autonomous(name="Auto")
 public class AutoEncoderCryptoBox extends LinearOpMode {
 
-    Bot bot = new Bot();
+    private Bot bot = new Bot();
 
     static final double COUNTS_PER_MOTOR_REV    = 1440;
     static final double DRIVE_GEAR_REDUCTION    = 2.0;
@@ -37,6 +37,16 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         waitForStart();
 
         // jewel
+        encoderDrive(DRIVE_SPEED * -1, 1.75, 1.75, 0);
+        bot.jewel.setPosition(.8d);
+        if (bot.colorSensor.blue() > 150)
+        {
+            encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
+        }
+        else
+        {
+            encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
+        }
 
         // read vumark
 
