@@ -62,6 +62,9 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         else
             encoderDrive(DRIVE_SPEED, 42, 42, 0);
 
+        encoderDrive(DRIVE_SPEED * -1, 6, -6, 0);
+
+        encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);
         // read vumark
         
         // enter loop

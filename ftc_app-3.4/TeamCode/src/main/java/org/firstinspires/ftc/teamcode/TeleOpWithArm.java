@@ -50,16 +50,16 @@ public class TeleOpWithArm extends OpMode{
             bot.rd.setPower(back * -1);
             telemetry.addData("driving backwards: ", "true");
         }
-        else if( a == true)
-        {
-            
-        }
         else
         {
             bot.ld.setPower(Range.clip(drive + turn, -1d, 1d));
             bot.rd.setPower(Range.clip(drive - turn, -1d, 1d));
             telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
+        }
+         while (a == true)
+        {
+            bot.arm1.setPower(1);
         }
     }
 }
