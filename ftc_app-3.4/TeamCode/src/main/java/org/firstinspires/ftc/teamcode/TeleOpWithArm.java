@@ -9,6 +9,8 @@ public class TeleOpWithArm extends OpMode{
 
     private Bot bot = new Bot();
 
+    // supposedly the force of gravity according to the best source
+    // the robot that we made... meaning... AI HAS TAKEN OVER
     private final double g = .3d;
 
     private boolean pushed = false;
@@ -25,6 +27,7 @@ public class TeleOpWithArm extends OpMode{
             if(gamepad1.y && gamepad2.y)
             {
                 bot.unfold();
+                pushed = !pushed;
             }
         }
 

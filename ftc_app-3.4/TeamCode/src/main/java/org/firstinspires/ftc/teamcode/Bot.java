@@ -48,27 +48,30 @@ public class Bot {
         ld.setDirection(DcMotorSimple.Direction.REVERSE);
         rd.setDirection(DcMotorSimple.Direction.FORWARD);
 
+        ld.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rd.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void unfold()
     {
-        jewel.setPosition(100/360);
-        pivot.setPosition(35/360);
-        arm.setPower(.7);
-        try
-        {
-            wait(1000);
-        }
-        catch(Exception e){ }
-        arm.setPower(0);
+        try {
+            jewel.setPosition(100 / 360);
+            pivot.setPosition(35 / 360);
 
-        arm2.setPower(-.7);
-        try
-        {
+            arm.setPower(.7);
+
             wait(1000);
+
+            arm.setPower(0);
+
+            arm2.setPower(-.7);
+
+            wait(1000);
+
+            arm2.setPower(0);
         }
         catch(Exception e){ }
-        arm2.setPower(0);
     }
 }
