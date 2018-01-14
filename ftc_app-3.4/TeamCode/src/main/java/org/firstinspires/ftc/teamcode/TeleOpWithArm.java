@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="TeleOp w/ Arm")
@@ -13,11 +11,24 @@ public class TeleOpWithArm extends OpMode{
 
     private final double g = .3d;
 
+    private boolean pushed = false;
+
     public void init() {
         bot.init(hardwareMap);
     }
 
     public void loop() {
+
+        //--- nuclear launch protocol ---//
+        if(!pushed)
+        {
+            if(gamepad1.y && gamepad2.y)
+            {
+                bot.unfold();
+            }
+        }
+
+
         double  drive = -gamepad1.right_stick_y, turn = gamepad1.right_stick_x;
         double straight = gamepad1.right_trigger, back = gamepad1.left_trigger;
 
@@ -34,11 +45,13 @@ public class TeleOpWithArm extends OpMode{
         boolean open = gamepad2.a, close = gamepad2.x;
         if(close)
         {
-            
+            bot.clamp.setPosition(0);
+            bot.clamp2.setPosition(0);
         }
         else if(open)
         {
-
+            bot.clamp.setPosition(.5);
+            bot.clamp2.setPosition(.5);
         }
 
         // left  trigger = drop
@@ -46,6 +59,15 @@ public class TeleOpWithArm extends OpMode{
 
         // right trigger = bring back
         double rightTrigger = gamepad2.right_trigger;
+
+        if(leftTrigger > rightTrigger)
+        {
+            bot.arm2.setPower(leftTrigger * -1);
+        }
+        else
+        {
+            bot.arm2.setPower(rightTrigger);
+        }
 
         if(straight > 0)
         {

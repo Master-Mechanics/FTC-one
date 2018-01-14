@@ -1,12 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 
 public class Bot {
 
@@ -17,7 +15,7 @@ public class Bot {
 
     public Servo pivot = null;
     public Servo clamp = null;
-    public Servo clamp1 = null;
+    public Servo clamp2 = null;
     public Servo armTop = null;
     public Servo jewel  = null;
 
@@ -39,7 +37,7 @@ public class Bot {
 
         pivot = hardwareMap.get(Servo.class, "pivot");
         clamp = hardwareMap.get(Servo.class,  "clamp");
-        clamp1 = hardwareMap.get(Servo.class,  "clamp1");
+        clamp2 = hardwareMap.get(Servo.class,  "clamp2");
         armTop = hardwareMap.get(Servo.class, "arm_top")
         jewel = hardwareMap.get(Servo.class, "jewel_servo");
 
@@ -51,5 +49,26 @@ public class Bot {
         rd.setDirection(DcMotorSimple.Direction.FORWARD);
 
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
+
+    public void unfold()
+    {
+        jewel.setPosition(100/360);
+        pivot.setPosition(35/360);
+        arm.setPower(.7);
+        try
+        {
+            wait(1000);
+        }
+        catch(Exception e){ }
+        arm.setPower(0);
+
+        arm2.setPower(-.7);
+        try
+        {
+            wait(1000);
+        }
+        catch(Exception e){ }
+        arm2.setPower(0);
     }
 }

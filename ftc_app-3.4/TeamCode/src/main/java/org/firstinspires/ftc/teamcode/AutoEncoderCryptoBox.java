@@ -35,7 +35,7 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         bot.ld.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bot.rd.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        bot.color_sensor = hardwareMap.colorSensor.get("color");
+        bot.colorSensor = hardwareMap.colorSensor.get("color");
 
         // wait 'til the drive hits start
         waitForStart();
