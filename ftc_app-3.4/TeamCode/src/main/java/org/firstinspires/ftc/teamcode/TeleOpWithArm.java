@@ -21,22 +21,10 @@ public class TeleOpWithArm extends OpMode{
         double  drive = -gamepad1.right_stick_y, turn = gamepad1.right_stick_x;
         double straight = gamepad1.right_trigger, back = gamepad1.left_trigger;
 
-        //bot.arm.setPower(gamepad2.left_stick_y * .2);
-
         double armMovement = (gamepad2.right_stick_y == 0) ? g : gamepad2.right_stick_y;
-        double armExtend = gamepad2.left_stick_y;
-
         double clamp = (gamepad2.left_stick_y == 0) ? g : gamepad2.right_stick_y;
-        boolean a = (gamepad2.a == true) ? g : gamepad2.a;
 
-        bot.arm.setPower(armMovement);
-        telemetry.addData("Arm Power: ", armMovement);
 
-        bot.extend.setPower(armExtend);
-        telemetry.addData("Arm Extension Power: ", armExtend);
-
-        bot.clamp.setPower(clamp);
-        bot.clamp1.setPower(-clamp);
 
         if(straight > 0)
         {
@@ -56,10 +44,6 @@ public class TeleOpWithArm extends OpMode{
             bot.rd.setPower(Range.clip(drive - turn, -1d, 1d));
             telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
-        }
-         while (a == true)
-        {
-            bot.arm1.setPower(1);
         }
     }
 }
