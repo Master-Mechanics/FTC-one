@@ -53,7 +53,6 @@ public class TeleOpWithArm extends OpMode{
         else if(open)
         {
             bot.clamp.setPosition(.5);
-            bot.clamp2.setPosition(.5);
         }
 
         // left  trigger = drop
