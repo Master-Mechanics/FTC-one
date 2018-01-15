@@ -59,11 +59,15 @@ public class Bot {
         try {
             pivot.setPosition(35 / 360);
 
+            wait(1000);
+
             jewel.setPosition(100 / 360);
-            
-            arm.setPower(.7);
 
             wait(1000);
+
+            arm.setPower(.7);
+
+            wait(2000);
 
             arm.setPower(0);
 
