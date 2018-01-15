@@ -15,7 +15,6 @@ public class Bot {
 
     public Servo pivot = null;
     public Servo clamp = null;
-    public Servo clamp2 = null;
     public Servo armTop = null;
     public Servo jewel  = null;
 
@@ -37,7 +36,6 @@ public class Bot {
 
         pivot = hardwareMap.get(Servo.class, "pivot");
         clamp = hardwareMap.get(Servo.class,  "clamp");
-        clamp2 = hardwareMap.get(Servo.class,  "clamp2");
         armTop = hardwareMap.get(Servo.class, "arm_top")
         jewel = hardwareMap.get(Servo.class, "jewel_servo");
 

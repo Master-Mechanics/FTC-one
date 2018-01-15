@@ -49,7 +49,6 @@ public class TeleOpWithArm extends OpMode{
         if(close)
         {
             bot.clamp.setPosition(0);
-            bot.clamp2.setPosition(0);
         }
         else if(open)
         {
