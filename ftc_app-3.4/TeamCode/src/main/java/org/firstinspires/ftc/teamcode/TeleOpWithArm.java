@@ -54,11 +54,11 @@ public class TeleOpWithArm extends OpMode{
 
         if(gamepad1.left_trigger > 0)
         {
-            bot.jewel.setPosition(bot.jewelPosition + 0.05);
+            bot.jewel.setPosition(bot.jewelPosition - 0.05);
         }
         else if(gamepad2.right_trigger > 0)
         {
-            bot.jewel.setPosition(bot.jewelPosition - 0.05);
+            bot.jewel.setPosition(bot.jewelPosition + 0.05);
         }
 
         // whole arm motor
@@ -95,11 +95,11 @@ public class TeleOpWithArm extends OpMode{
 
         if(leftTrigger > rightTrigger)
         {
-            bot.arm2.setPower(leftTrigger / 2 * -1);
+            bot.arm2.setPower(leftTrigger / 10 * -1);
         }
         else
         {
-            bot.arm2.setPower(rightTrigger / 2);
+            bot.arm2.setPower(rightTrigger / 10);
         }
 
         if(straight > 0)

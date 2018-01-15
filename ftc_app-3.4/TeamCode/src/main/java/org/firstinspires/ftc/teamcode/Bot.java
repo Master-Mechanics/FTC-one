@@ -57,7 +57,7 @@ public class Bot {
     public void unfold()
     {
         try {
-            pivot.setPosition(35 / 360);
+            pivot.setPosition(180 / 360);
 
             wait(1000);
 
@@ -77,6 +77,6 @@ public class Bot {
 
             arm2.setPower(0);
         }
-        catch(Exception e){ }
+        catch(Exception e){telemetry.addData("Something Messed up: ", "unfold messed up");}
     }
 }
