@@ -32,12 +32,12 @@ public class TeleOpWithArm extends OpMode{
         }
 
 
-        double  drive = -gamepad1.right_stick_y, turn = gamepad1.right_stick_x;
-        double straight = gamepad1.right_trigger, back = gamepad1.left_trigger;
+        double  drive = -gamepad1.right_stick_y / 2, turn = gamepad1.right_stick_x / 2;
+        double straight = gamepad1.right_trigger / 2, back = gamepad1.left_trigger / 2;
 
         // whole arm motor
         double armMovement = gamepad2.right_stick_y;
-        bot.arm.setPower(armMovement);
+        bot.arm2.setPower(armMovement);
 
         // arm pivot server
         double pivot = gamepad2.left_stick_y;
