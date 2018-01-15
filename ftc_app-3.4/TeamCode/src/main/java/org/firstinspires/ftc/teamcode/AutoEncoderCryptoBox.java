@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
+import android.util.SparseIntArray;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -68,7 +70,9 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
         // read vumark
-        
+        ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
+
+        vumark.runOpMode();
         // enter loop
 
         // get block

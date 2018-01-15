@@ -52,7 +52,7 @@ public class TeleOpWithArm extends OpMode{
         double  drive = -gamepad1.right_stick_y / 2, turn = gamepad1.right_stick_x / 2;
         double straight = gamepad1.right_trigger / 2, back = gamepad1.left_trigger / 2;
 
-        if(gamepap1.left_trigger > 0)
+        if(gamepad1.left_trigger > 0)
         {
             bot.jewel.setPosition(bot.jewelPosition + 0.05);
         }
