@@ -36,7 +36,7 @@ public class Bot {
 
         pivot = hardwareMap.get(Servo.class, "pivot");
         clamp = hardwareMap.get(Servo.class,  "clamp");
-        armTop = hardwareMap.get(Servo.class, "arm_top")
+        armTop = hardwareMap.get(Servo.class, "arm_top");
         jewel = hardwareMap.get(Servo.class, "jewel_servo");
 
         colorSensor = hardwareMap.get(ColorSensor.class, "color");
