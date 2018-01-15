@@ -21,6 +21,7 @@ public class Bot {
     public ColorSensor colorSensor = null;
 
     public double pivotPosition = 0d;
+    public double jewelPosition = 0d;
 
     public String vuLicense = "AZdKRPL/////AAAAGdWHky5ZjET7mNUJ+qxkIDtvddP9PIXKwsMwBNDXV0SrsOuioPqAv1q7EB2k1QqsJd3eIb8WIXmHt4fxm153DMq6AEpg0L8nuqQuMmzxL9nFfM2ubV6PVSoZcdQqPOwtLpJqk4KUjKc8v0Es0M0aZl7R8a+jyzDiobaKVE9+4EY1dKuRPTB1OYCqCKfn1OkULrWxH6zSzwyf6ztPp6cKFn+oaglcxzX9iOhejsX4CsoAg4X/6HLnWWrux1Z4hfVP2EKanjrXqeSm5iursV0Lu+HRKMvo9VbIzGnit7JDusQsI7JVEpVsRnR39GaTJT1W1jijOVaw7VVkCt/7D9U+z5JcjgzOoug+Mye9H6n020MW";
 
@@ -42,6 +43,7 @@ public class Bot {
         colorSensor = hardwareMap.get(ColorSensor.class, "color");
 
         pivotPosition = pivot.getPosition();
+        jewelPosition = jewel.getPosition();
 
         ld.setDirection(DcMotorSimple.Direction.REVERSE);
         rd.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -57,7 +59,7 @@ public class Bot {
         try {
             pivot.setPosition(35 / 360);
 
-            jewel.setPosition(-100 / 360);
+            jewel.setPosition(100 / 360);
             
             arm.setPower(.7);
 
