@@ -77,6 +77,6 @@ public class Bot {
 
             arm2.setPower(0);
         }
-        catch(Exception e){telemetry.addData("Something Messed up: ", "unfold messed up");}
+        catch(Exception e){}
     }
 }
