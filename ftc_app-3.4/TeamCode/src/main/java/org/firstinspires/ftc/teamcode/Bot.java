@@ -65,7 +65,7 @@ public class Bot {
 
             arm.setPower(0);
 
-            arm2.setPower(-.7);
+            arm2.setPower(-.07);
 
             wait(1000);
 

@@ -84,11 +84,11 @@ public class TeleOpWithArm extends OpMode{
 
         if(leftTrigger > rightTrigger)
         {
-            bot.arm2.setPower(leftTrigger * -1);
+            bot.arm2.setPower(leftTrigger / 5 * -1);
         }
         else
         {
-            bot.arm2.setPower(rightTrigger);
+            bot.arm2.setPower(rightTrigger / 5);
         }
 
         if(straight > 0)
