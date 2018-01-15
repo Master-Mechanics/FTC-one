@@ -49,22 +49,24 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         {
             isBlue = true;
             encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
+            encoderDrive(DRIVE_SPEED * 1, 2.5, 2.5, 0);
         }
         else
         {
+            encoderDrive(DRIVE_SPEED * 1, 2.5, 2.5, 0);
             encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
         }
 
         bot.jewel.setPosition(0);
 
-        if(isBlue)
+        /*if(isBlue)
             encoderDrive(DRIVE_SPEED, 36, 36, 0);
         else
             encoderDrive(DRIVE_SPEED, 42, 42, 0);
 
         encoderDrive(DRIVE_SPEED * -1, 6, -6, 0);
 
-        encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);
+        encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
         // read vumark
         
         // enter loop
