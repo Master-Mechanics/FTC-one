@@ -55,9 +55,10 @@ public class Bot {
     public void unfold()
     {
         try {
-            jewel.setPosition(-100 / 360);
             pivot.setPosition(35 / 360);
 
+            jewel.setPosition(-100 / 360);
+            
             arm.setPower(.7);
 
             wait(1000);
