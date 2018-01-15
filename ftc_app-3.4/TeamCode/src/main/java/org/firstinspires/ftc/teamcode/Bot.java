@@ -32,7 +32,7 @@ public class Bot {
         ld = hardwareMap.get(DcMotor.class, "left_drive");
         rd = hardwareMap.get(DcMotor.class, "right_drive");
         arm = hardwareMap.get(DcMotor.class, "front_arm");
-        arm2 = hardwareMap.get(DcMotor.class, "front_arm");
+        arm2 = hardwareMap.get(DcMotor.class, "back_arm");
 
         pivot = hardwareMap.get(Servo.class, "pivot");
         clamp = hardwareMap.get(Servo.class,  "clamp");

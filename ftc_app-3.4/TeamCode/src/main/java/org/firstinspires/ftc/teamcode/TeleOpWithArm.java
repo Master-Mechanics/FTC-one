@@ -37,7 +37,7 @@ public class TeleOpWithArm extends OpMode{
 
         // whole arm motor
         double armMovement = gamepad2.right_stick_y;
-        bot.arm2.setPower(armMovement);
+        bot.arm.setPower(armMovement);
 
         // arm pivot server
         double pivot = gamepad2.left_stick_y;
