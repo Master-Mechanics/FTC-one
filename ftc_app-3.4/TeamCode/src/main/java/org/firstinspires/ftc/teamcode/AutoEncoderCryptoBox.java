@@ -134,6 +134,43 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         // place block in location or
 
+        encoderDrive(TURN_SPEED, 24, -24, 0);
+
+        encoderDrive(DRIVE_SPEED, 24, 24, 0);
+
+        bot.clamp.setPosition(0);
+
+        bot.arm.setPower(1);
+
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
+
+        bot.arm.setPower(0);
+
+        encoderDrive(DRIVE_SPEED, -24, -24, 0);
+
+        bot.arm2.setPower(1);
+
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
+
+        bot.arm2.setPower(-1);
+
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
+
+        bot.arm2.setPower(0);
+
+        encoderDrive(DRIVE_SPEED, -6, -6, 0);
+
+
+
     }
 
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
