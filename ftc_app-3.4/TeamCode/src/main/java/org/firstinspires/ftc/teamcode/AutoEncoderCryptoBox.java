@@ -70,9 +70,10 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
         // read vumark
-        //ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
+        encoderDrive(DRIVE_SPEED, 6, 6, 0);
+        ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
 
-        //vumark.runOpMode();
+        vumark.runOpMode();
         // enter loop
 
 
