@@ -74,21 +74,41 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         //vumark.runOpMode();
         // enter loop
-        
-        // move forward 18 inches
+
+
+        // Put first block in
         encoderDrive(DRIVE_SPEED, 18, 18, 0);
+
+        encoderDrive(TURN_SPEED, 12, -12, 0);
+
+        bot.arm.setPower(.3);
+
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
+
+        bot.arm.setPower(0);
+
+        bot.clamp.setPosition(1);
+
+        // move forward 18 inches
+        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
         
         // turn 90deg left
-        encoderDrive(TURN_SPEED, -12, 12, 0);
+        //encoderDrive(TURN_SPEED, -12, 12, 0);
 
         // move forward 18 inches
-        encoderDrive(DRIVE_SPEED, 18, 18, 0);
-
+        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
+        /*
         bot.clamp.setPosition(0);
 
         bot.arm.setPower(1);
 
-        wait(500);
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
 
         bot.arm.setPower(0);
 
@@ -96,15 +116,21 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
         
         bot.arm2.setPower(1);
 
-        wait(500);
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
 
         bot.arm2.setPower(-1);
 
-        wait(500);
+        try {
+            wait(500);
+        }
+        catch (Exception e){}
 
         bot.arm2.setPower(0);
 
-        encoderDrive(DRIVE_SPEED, -6, -6, 0);
+        encoderDrive(DRIVE_SPEED, -6, -6, 0); */
 
         // place block in location or
 

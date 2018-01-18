@@ -122,7 +122,7 @@ public class TeleOpWithArm extends OpMode{
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
         }
 
-        if(gamepad1.Y)
+        if(gamepad1.y)
         {
             bot.jewel.setPosition(.5);
         }
