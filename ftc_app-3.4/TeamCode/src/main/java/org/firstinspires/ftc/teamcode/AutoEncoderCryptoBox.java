@@ -90,9 +90,21 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         wait(500);
 
-        encoderDrive(DRIVE_SPEED, -24, -24, 0);
+        bot.arm.setPower(0);
 
-        // get block
+        encoderDrive(DRIVE_SPEED, -24, -24, 0);
+        
+        bot.arm2.setPower(1);
+
+        wait(500);
+
+        bot.arm2.setPower(-1);
+
+        wait(500);
+
+        bot.arm2.setPower(0);
+
+        encoderDrive(DRIVE_SPEED, -6, -6, 0);
 
         // place block in location or
 
