@@ -19,7 +19,7 @@ public class TeleOpWithArm extends OpMode{
     private boolean pivotLock = false;
 
     // B - gamepad 2
-    private boolean armLock = false;
+    //private boolean armLock = false;
 
     public void init() {
         bot.init(hardwareMap);
@@ -43,11 +43,11 @@ public class TeleOpWithArm extends OpMode{
 
 
 
-        if (gamepad2.b)
+        /*if (gamepad2.b)
         {
             armLock = !armLock;
             telemetry.addData("armLock: ", armLock);
-        }
+        }*/
 
         double  drive = -gamepad1.right_stick_y / 2, turn = gamepad1.right_stick_x / 2;
         double straight = gamepad1.right_trigger / 2, back = gamepad1.left_trigger / 2;
@@ -62,17 +62,17 @@ public class TeleOpWithArm extends OpMode{
         }*/
 
         // whole arm motor
-        double armMovement = gamepad2.right_stick_y/2;
+        /*double armMovement = gamepad2.right_stick_y/2;
         if(!armLock)
         {
             bot.arm.setPower(armMovement);
-        }
+        }*/
 
         // arm pivot server
-        double pivot = gamepad2.left_stick_y/2;
+        double pivot = gamepad2.left_stick_y/5;
         if(!pivotLock)
         {
-            bot.pivot.setPosition(bot.pivotPosition + (pivot / 7.5));
+            bot.pivot.setPosition(bot.pivotPosition + (pivot / 5));
             bot.pivotPosition = bot.pivot.getPosition();
         }
 
@@ -128,7 +128,7 @@ public class TeleOpWithArm extends OpMode{
         }
         else if(gamepad1.b)
         {
-            bot.jewel.setPosition(15);
+            bot.jewel.setPosition(.15);
         }
     }
 }
