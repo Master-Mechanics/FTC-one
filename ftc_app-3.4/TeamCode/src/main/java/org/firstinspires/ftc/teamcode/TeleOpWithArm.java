@@ -68,7 +68,7 @@ public class TeleOpWithArm extends OpMode{
         }
 
         // arm pivot server
-        double pivot = gamepad2.left_stick_y/5;
+        double pivot = gamepad2.left_stick_y/3;
         if(!pivotLock)
         {
             bot.pivot.setPosition(bot.pivotPosition + (pivot / 5));
