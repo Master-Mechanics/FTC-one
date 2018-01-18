@@ -170,7 +170,7 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         encoderDrive(TURN_SPEED, -24, 24, 0);
 
-        encoderDrive(DRIVE_SPEED,);
+        encoderDrive(DRIVE_SPEED, 24, 24, 0);
 
 
 
