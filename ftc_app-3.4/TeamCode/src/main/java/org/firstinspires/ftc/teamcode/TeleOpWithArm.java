@@ -72,7 +72,7 @@ public class TeleOpWithArm extends OpMode{
         double pivot = gamepad2.left_stick_y/2;
         if(!pivotLock)
         {
-            bot.pivot.setPosition(bot.pivotPosition + (pivot / 5));
+            bot.pivot.setPosition(bot.pivotPosition + (pivot / 7.5));
             bot.pivotPosition = bot.pivot.getPosition();
         }
 
@@ -124,11 +124,11 @@ public class TeleOpWithArm extends OpMode{
 
         if(gamepad1.y)
         {
-            bot.jewel.setPosition(.5);
+            bot.jewel.setPosition(.75);
         }
         else if(gamepad1.b)
         {
-            bot.jewel.setPosition(0);
+            bot.jewel.setPosition(15);
         }
     }
 }

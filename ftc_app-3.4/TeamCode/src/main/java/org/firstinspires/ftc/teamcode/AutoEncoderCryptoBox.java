@@ -168,7 +168,9 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         bot.arm2.setPower(0);
 
-        encoderDrive(DRIVE_SPEED, -6, -6, 0);
+        encoderDrive(TURN_SPEED, -24, 24, 0);
+
+        encoderDrive(DRIVE_SPEED,);
 
 
 
