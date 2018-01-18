@@ -19,7 +19,7 @@ public class TeleOpWithArm extends OpMode{
     private boolean pivotLock = false;
 
     // B - gamepad 2
-    //private boolean armLock = false;
+    private boolean armLock = false;
 
     public void init() {
         bot.init(hardwareMap);
@@ -62,11 +62,10 @@ public class TeleOpWithArm extends OpMode{
         }*/
 
         // whole arm motor
-        /*double armMovement = gamepad2.right_stick_y/2;
-        if(!armLock)
-        {
+        double armMovement = gamepad2.right_stick_y/6;
+        if(!armLock) {
             bot.arm.setPower(armMovement);
-        }*/
+        }
 
         // arm pivot server
         double pivot = gamepad2.left_stick_y/5;
