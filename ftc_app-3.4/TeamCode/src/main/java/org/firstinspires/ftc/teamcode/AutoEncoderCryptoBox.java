@@ -70,10 +70,27 @@ public class AutoEncoderCryptoBox extends LinearOpMode {
 
         encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
         // read vumark
-        ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
+        //ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
 
-        vumark.runOpMode();
+        //vumark.runOpMode();
         // enter loop
+        
+        // move forward 18 inches
+        encoderDrive(DRIVE_SPEED, 18, 18, 0);
+        
+        // turn 90deg left
+        encoderDrive(TURN_SPEED, -12, 12, 0);
+
+        // move forward 18 inches
+        encoderDrive(DRIVE_SPEED, 18, 18, 0);
+
+        bot.clamp.setPosition(0);
+
+        bot.arm.setPower(1);
+
+        wait(500);
+
+        encoderDrive(DRIVE_SPEED, -24, -24, 0);
 
         // get block
 
