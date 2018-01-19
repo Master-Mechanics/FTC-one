@@ -92,14 +92,14 @@ public class TeleOpWithArm extends OpMode{
         // right trigger = bring back
         double rightTrigger = gamepad2.right_trigger;
 
-        if(leftTrigger > rightTrigger)
+        /*if(leftTrigger > rightTrigger)
         {
             bot.arm2.setPower(leftTrigger / 3 * -1);
         }
         else
         {
             bot.arm2.setPower(rightTrigger / 3);
-        }
+        }*/
 
         if(straight > 0)
         {

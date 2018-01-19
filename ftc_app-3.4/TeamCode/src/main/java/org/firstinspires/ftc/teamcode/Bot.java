@@ -11,7 +11,7 @@ public class Bot {
     public DcMotor ld  = null;
     public DcMotor rd  = null;
     public DcMotor arm = null;
-    public DcMotor arm2 = null;
+   // public DcMotor arm2 = null;
 
     public Servo pivot = null;
     public Servo clamp = null;
@@ -33,7 +33,7 @@ public class Bot {
         ld = hardwareMap.get(DcMotor.class, "left_drive");
         rd = hardwareMap.get(DcMotor.class, "right_drive");
         arm = hardwareMap.get(DcMotor.class, "front_arm");
-        arm2 = hardwareMap.get(DcMotor.class, "back_arm");
+      //  arm2 = hardwareMap.get(DcMotor.class, "back_arm");
 
         pivot = hardwareMap.get(Servo.class, "pivot");
         clamp = hardwareMap.get(Servo.class,  "clamp");
@@ -51,7 +51,7 @@ public class Bot {
         ld.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         rd.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+       // arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void unfold()
@@ -71,11 +71,11 @@ public class Bot {
 
             arm.setPower(0);
 
-            arm2.setPower(-.07);
+          /*  arm2.setPower(-.07);
 
             wait(1000);
 
-            arm2.setPower(0);
+            arm2.setPower(0);*/
         }
         catch(Exception e){}
     }
