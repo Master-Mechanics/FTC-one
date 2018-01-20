@@ -4,8 +4,6 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import sun.jvm.hotspot.debugger.posix.elf.ELFSectionHeader;
-
 @TeleOp(name="TeleOp w/ Arm")
 public class TeleOpWithArm extends OpMode{
 
@@ -71,7 +69,7 @@ public class TeleOpWithArm extends OpMode{
         boolean open2 = gamepad2.y, close2 = gamepad2.b;
         if(close2)
         {
-            bot.pivot2.setPosition(0);
+            bot.pivot2.setPosition(-.05);
         }
         else if(open2)
         {
