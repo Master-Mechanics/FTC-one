@@ -32,7 +32,8 @@ public class TeleOpWithArm extends OpMode{
             }
         }
 
-        double  drive = -gamepad1.right_stick_y / 2, turn = gamepad1.right_stick_x / 2;
+        double drive2 = -gamepad1.right_stick_y / 2;//, turn = gamepad1.right_stick_x;
+        double drive = -gamepad1.left_stick_y / 2;
         double straight = gamepad1.right_trigger / 2, back = gamepad1.left_trigger / 2;
 
         /*if(gamepad1.left_trigger > 0)
@@ -53,7 +54,7 @@ public class TeleOpWithArm extends OpMode{
         // arm pivot server
         double pivot = gamepad2.right_stick_y;
         bot.pivotPosition = bot.pivot.getPosition();
-        bot.pivot.setPosition(bot.pivotPosition + (pivot / 40));
+        bot.pivot.setPosition(bot.pivotPosition + (pivot / 200));
 
         // open arm                close arm
         boolean open = gamepad2.a, close = gamepad2.x;
@@ -69,11 +70,13 @@ public class TeleOpWithArm extends OpMode{
         boolean open2 = gamepad2.y, close2 = gamepad2.b;
         if(close2)
         {
-            bot.pivot2.setPosition(-.05);
+            bot.pivot2Position = bot.pivot2.getPosition();
+            bot.pivot2.setPosition(bot.pivot2Position-.001);
         }
         else if(open2)
         {
-            bot.pivot2.setPosition(.3);
+            bot.pivot2Position = bot.pivot2.getPosition();
+            bot.pivot2.setPosition(bot.pivot2Position+.001);
         }
 
         // left  trigger = drop
@@ -91,7 +94,7 @@ public class TeleOpWithArm extends OpMode{
             bot.arm2.setPower(rightTrigger / 3);
         }
 
-        if(straight > 0)
+        /*if(straight > 0)
         {
             bot.ld.setPower(straight);
             bot.rd.setPower(straight);
@@ -107,13 +110,13 @@ public class TeleOpWithArm extends OpMode{
         {
             if(turn > 0)
             {
-                bot.ld.setPower(Range.clip(turn, -1d, 1d));
-                bot.rd.setPower(Range.clip(turn * -1, -1d, 1d));
+                bot.ld.setPower(Range.clip(-turn, -1d, 1d));
+                bot.rd.setPower(Range.clip(turn, -1d, 1d));
             }
             else if(turn < 0)
             {
-                bot.ld.setPower(Range.clip(turn * -1, -1d, 1d));
-                bot.rd.setPower(Range.clip(turn, -1d, 1d));
+                bot.ld.setPower(Range.clip(turn, -1d, 1d));
+                bot.rd.setPower(Range.clip(-turn, -1d, 1d));
             }
             else
             {
@@ -123,7 +126,30 @@ public class TeleOpWithArm extends OpMode{
             
             telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
+        }*/
+        if(straight > 0)
+        {
+            bot.ld.setPower(straight);
+            bot.rd.setPower(straight);
+            telemetry.addData("driving straight: ", "true");
         }
+        else if(back > 0)
+        {
+            bot.ld.setPower(back * -1);
+            bot.rd.setPower(back * -1);
+            telemetry.addData("driving backwards: ", "true");
+        }
+        else
+        {
+            //bot.ld.setPower(Range.clip(drive + turn, -1d, 1d));
+            //bot.rd.setPower(Range.clip(drive - turn, -1d, 1d));
+            //telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
+            //telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
+            bot.ld.setPower(drive);
+            bot.rd.setPower(drive2);
+        }
+
+
 
         if(gamepad1.y)
         {
