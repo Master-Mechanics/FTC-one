@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 
-@Autonomous(name="Auto")
-public class AutoEncoder extends LinearOpMode {
+@Autonomous(name="Backup - left")
+public class BackupLeft extends LinearOpMode {
 
     private Bot bot = new Bot();
 
@@ -28,7 +28,7 @@ public class AutoEncoder extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException{
         bot.init(hardwareMap);
 
         bot.ld.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -42,137 +42,9 @@ public class AutoEncoder extends LinearOpMode {
         // wait 'til the drive hits start
         waitForStart();
 
-        boolean isBlue = false;
-
-        // jewel
-        encoderDrive(DRIVE_SPEED * -1, 1.75, 1.75, 0);
-        bot.jewel.setPosition(.8d);
-        if (bot.colorSensor.blue() > 150)
-        {
-            isBlue = true;
-            encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
-            encoderDrive(DRIVE_SPEED * 1, 2.5, 2.5, 0);
-        }
-        else
-        {
-            encoderDrive(DRIVE_SPEED * 1, 2.5, 2.5, 0);
-            encoderDrive(DRIVE_SPEED * -1, 2.5, 2.5, 0);
-        }
-
-        bot.jewel.setPosition(0);
-
-        /*if(isBlue)
-            encoderDrive(DRIVE_SPEED, 36, 36, 0);
-        else
-            encoderDrive(DRIVE_SPEED, 42, 42, 0);
-
-        encoderDrive(DRIVE_SPEED * -1, 6, -6, 0);
-
-        encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
-        // read vumark
-        encoderDrive(DRIVE_SPEED, 6, 6, 0);
-        ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
-
-        vumark.runOpMode();
-        // enter loop
 
 
-        // Put first block in
-        encoderDrive(DRIVE_SPEED, 18, 18, 0);
-
-        encoderDrive(TURN_SPEED, 12, -12, 0);
-
-        bot.arm.setPower(.3);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm.setPower(0);
-
-        bot.clamp.setPosition(1);
-
-        // move forward 18 inches
-        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
-
-        // turn 90deg left
-        //encoderDrive(TURN_SPEED, -12, 12, 0);
-
-        // move forward 18 inches
-        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
-        /*
-        bot.clamp.setPosition(0);
-
-        bot.arm.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm.setPower(0);
-
-        encoderDrive(DRIVE_SPEED, -24, -24, 0);
-
-        bot.arm2.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(-1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(0);
-
-        encoderDrive(DRIVE_SPEED, -6, -6, 0); */
-
-        // place block in location or
-
-        encoderDrive(TURN_SPEED, 24, -24, 0);
-
-        encoderDrive(DRIVE_SPEED, 24, 24, 0);
-
-        bot.clamp.setPosition(0);
-
-        bot.arm.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm.setPower(0);
-
-        encoderDrive(DRIVE_SPEED, -24, -24, 0);
-
-        /*bot.arm2.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(-1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(0);
-
-        encoderDrive(TURN_SPEED, -24, 24, 0);
-
-        encoderDrive(DRIVE_SPEED, 24, 24, 0);*/
-
-
+        encoderDrive(DRIVE_SPEED, 30, 30, 0);
 
     }
 

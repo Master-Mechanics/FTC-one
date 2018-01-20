@@ -27,12 +27,12 @@ public class TeleOpWithArm extends OpMode{
         //--- nuclear launch protocol ---//
         if (!pushed) {
             if (gamepad1.y && gamepad2.y) {
-                bot.unfold();
+                //bot.unfold();
                 pushed = !pushed;
             }
         }
 
-        double drive2 = -gamepad1.right_stick_y / 2;//, turn = gamepad1.right_stick_x;
+            double drive2 = -gamepad1.right_stick_y / 2;//, turn = gamepad1.right_stick_x;
         double drive = -gamepad1.left_stick_y / 2;
         double straight = gamepad1.right_trigger / 2, back = gamepad1.left_trigger / 2;
 

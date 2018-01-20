@@ -53,19 +53,17 @@ public class Bot {
         rd.setDirection(DcMotorSimple.Direction.FORWARD);
 
         ld.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rd.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-       // arm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     public void unfold()
     {
         try {
-            pivot.setPosition(180 / 360);
+            pivot.setPosition(180d / 360);
 
             wait(1000);
 
-            jewel.setPosition(100 / 360);
+            jewel.setPosition(100d / 360);
 
             wait(1000);
 
@@ -84,4 +82,6 @@ public class Bot {
         }
         catch(Exception e){}
     }
+
+
 }
