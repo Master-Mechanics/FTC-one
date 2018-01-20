@@ -53,7 +53,7 @@ public class TeleOpWithArm extends OpMode{
         // arm pivot server
         double pivot = gamepad2.right_stick_y;
         bot.pivotPosition = bot.pivot.getPosition();
-        bot.pivot.setPosition(bot.pivotPosition + (pivot / 10));
+        bot.pivot.setPosition(bot.pivotPosition + (pivot / 25));
 
         // open arm                close arm
         boolean open = gamepad2.a, close = gamepad2.x;
@@ -64,6 +64,16 @@ public class TeleOpWithArm extends OpMode{
         else if(open)
         {
             bot.clamp.setPosition(.5);
+        }
+
+        boolean open2 = gamepad2.y, close2 = gamepad2.b;
+        if(close2)
+        {
+            bot.pivot2.setPosition(0);
+        }
+        else if(open2)
+        {
+            bot.pivot2.setPosition(.25);
         }
 
         // left  trigger = drop
@@ -95,8 +105,8 @@ public class TeleOpWithArm extends OpMode{
         }
         else
         {
-            bot.ld.setPower(Range.clip(drive + turn, -1d, 1d));
-            bot.rd.setPower(Range.clip(drive - turn, -1d, 1d));
+            bot.ld.setPower(Range.clip(drive + turn/2, -1d, 1d));
+            bot.rd.setPower(Range.clip(drive - turn/2, -1d, 1d));
             telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
         }
