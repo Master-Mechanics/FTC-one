@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 
 
 @Autonomous(name="Auto")
-public class AutoEncoderCryptoBox extends LinearOpMode {
+public class AutoEncoder extends LinearOpMode {
 
     private Bot bot = new Bot();
 
