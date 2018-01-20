@@ -73,7 +73,7 @@ public class TeleOpWithArm extends OpMode{
         }
         else if(open2)
         {
-            bot.pivot2.setPosition(.25);
+            bot.pivot2.setPosition(.3);
         }
 
         // left  trigger = drop
