@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
+import sun.jvm.hotspot.debugger.posix.elf.ELFSectionHeader;
+
 @TeleOp(name="TeleOp w/ Arm")
 public class TeleOpWithArm extends OpMode{
 
@@ -105,8 +107,22 @@ public class TeleOpWithArm extends OpMode{
         }
         else
         {
-            bot.ld.setPower(Range.clip(drive + turn, -1d, 1d));
-            bot.rd.setPower(Range.clip(drive - turn, -1d, 1d));
+            if(turn > 0)
+            {
+                bot.ld.setPower(Range.clip(turn, -1d, 1d));
+                bot.rd.setPower(Range.clip(turn * -1, -1d, 1d));
+            }
+            else if(turn < 0)
+            {
+                bot.ld.setPower(Range.clip(turn * -1, -1d, 1d));
+                bot.rd.setPower(Range.clip(turn, -1d, 1d));
+            }
+            else
+            {
+                bot.ld.setPower(Range.clip(drive, -1d, 1d));
+                bot.rd.setPower(Range.clip(drive, -1d, 1d));
+            }
+            
             telemetry.addData("left drive power: ", bot.ld.getPowerFloat());
             telemetry.addData("right drive power: ", bot.rd.getPowerFloat());
         }
