@@ -43,13 +43,16 @@ public class AutoEncoderLeftRed extends LinearOpMode {
         // jewel
         //encoderDrive(DRIVE_SPEED, 1 , .7, 1);
 
-        int red = bot.colorSensor.red();
-        int blue = bot.colorSensor.blue();
-        int green = bot.colorSensor.green();
+        while(true) {
+            int red = bot.colorSensor.red();
+            int blue = bot.colorSensor.blue();
+            int green = bot.colorSensor.green();
 
-        telemetry.addData("red: ","%d", red);
-        telemetry.addData("blue: ", "%d", blue);
-        telemetry.addData   ("green: ", "%d", green);
+            telemetry.addData("red: ", "%d", red);
+            telemetry.addData("blue: ", "%d", blue);
+            telemetry.addData("green: ", "%d", green);
+            telemetry.update();
+        }
     }
 /*
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
