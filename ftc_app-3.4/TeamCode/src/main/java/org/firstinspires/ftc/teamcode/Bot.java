@@ -32,56 +32,27 @@ public class Bot {
     public void init(HardwareMap ahwMap) {
         hardwareMap = ahwMap;
 
-        ld = hardwareMap.get(DcMotor.class, "left_drive");
-        rd = hardwareMap.get(DcMotor.class, "right_drive");
-        arm = hardwareMap.get(DcMotor.class, "front_arm");
-        arm2 = hardwareMap.get(DcMotor.class, "back_arm");
+        //ld = hardwareMap.get(DcMotor.class, "left_drive");
+        //rd = hardwareMap.get(DcMotor.class, "right_drive");
+        //arm = hardwareMap.get(DcMotor.class, "front_arm");
+        //arm2 = hardwareMap.get(DcMotor.class, "back_arm");
 
-        pivot = hardwareMap.get(Servo.class, "pivot");
-        pivot2 = hardwareMap.get(Servo.class, "back_pivot");
-        clamp = hardwareMap.get(Servo.class,  "clamp");
-        armTop = hardwareMap.get(Servo.class, "arm_top");
-        jewel = hardwareMap.get(Servo.class, "jewel_servo");
+        //pivot = hardwareMap.get(Servo.class, "pivot");
+        //pivot2 = hardwareMap.get(Servo.class, "back_pivot");
+        //clamp = hardwareMap.get(Servo.class,  "clamp");
+        //armTop = hardwareMap.get(Servo.class, "arm_top");
+        //jewel = hardwareMap.get(Servo.class, "jewel_servo");
 
         colorSensor = hardwareMap.get(ColorSensor.class, "color");
 
-        pivotPosition = pivot.getPosition();
-        pivot2Position = pivot2.getPosition();
-        jewelPosition = jewel.getPosition();
+        //pivotPosition = pivot.getPosition();
+        //pivot2Position = pivot2.getPosition();
+        //jewelPosition = jewel.getPosition();
 
-        ld.setDirection(DcMotorSimple.Direction.REVERSE);
-        rd.setDirection(DcMotorSimple.Direction.FORWARD);
+        //ld.setDirection(DcMotorSimple.Direction.REVERSE);
+        //rd.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        ld.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //ld.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        //arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
-
-    public void unfold()
-    {
-        try {
-            pivot.setPosition(180d / 360);
-
-            wait(1000);
-
-            jewel.setPosition(100d / 360);
-
-            wait(1000);
-
-            arm2.setPower(-.07);
-
-            wait(1000);
-
-            arm2.setPower(0);
-
-            arm.setPower(.7);
-
-            wait(2000);
-
-            arm.setPower(0);
-
-        }
-        catch(Exception e){}
-    }
-
-
 }

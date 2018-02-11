@@ -8,16 +8,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
-
-@Autonomous(name="AutoEncoder - left - red")
+//👉😎👉
+@Autonomous(name="test")
 public class AutoEncoderLeftRed extends LinearOpMode {
 
     private Bot bot = new Bot();
 
-    ColorSensor color_sensor;
-
     static final double COUNTS_PER_MOTOR_REV    = 1440;
-    static final double DRIVE_GEAR_REDUCTION    = 2.0;
+    static final double DRIVE_GEAR_REDUCTION    = 1;
     static final double WHEEL_DIAMETER_INCHES   = 5.0;
     static final double COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION)
             / (WHEEL_DIAMETER_INCHES * Math.PI) / 2;
@@ -28,106 +26,32 @@ public class AutoEncoderLeftRed extends LinearOpMode {
     private ElapsedTime runtime = new ElapsedTime();
 
     @Override
-    public void runOpMode() throws InterruptedException{
+    public void runOpMode() {
         bot.init(hardwareMap);
 
-        bot.ld.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        /*bot.ld.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         bot.rd.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         bot.ld.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         bot.rd.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-
+        */
         bot.colorSensor = hardwareMap.colorSensor.get("color");
 
         // wait 'til the drive hits start
         waitForStart();
 
-        boolean isBlue = false;
-
         // jewel
-        bot.jewel.setPosition(.82);
-        sleep(2000);
-        telemetry.addData("blue: ", bot.colorSensor.blue());
-        telemetry.addData("red:  ", bot.colorSensor.red());
-        if (bot.colorSensor.blue() > bot.colorSensor.red())
-        {
-            isBlue = true;
-            encoderDrive(DRIVE_SPEED * 1, -2.5, -2.5, 0);
-            bot.jewel.setPosition(1);
-            encoderDrive(DRIVE_SPEED, 30, 30, 0);
-        }
-        else
-        {
-            encoderDrive(DRIVE_SPEED * 1, 2.5, 2.5, 0);
-            bot.jewel.setPosition(1);
-            encoderDrive(DRIVE_SPEED, 30, 30, 0);
-        }
+        //encoderDrive(DRIVE_SPEED, 1 , .7, 1);
 
-        bot.jewel.setPosition(0);
+        int red = bot.colorSensor.red();
+        int blue = bot.colorSensor.blue();
+        int green = bot.colorSensor.green();
 
-
-
-        /*if(isBlue)
-            encoderDrive(DRIVE_SPEED, 36, 36, 0);
-        else
-            encoderDrive(DRIVE_SPEED, 42, 42, 0);
-
-        encoderDrive(DRIVE_SPEED * -1, 6, -6, 0);
-
-        encoderDrive(DRIVE_SPEED * 1, 12, 12, 0);*/
-        // read vumark
-        //encoderDrive(DRIVE_SPEED, 6, 6, 0);
-        //ConceptVuMarkIdentification vumark = new ConceptVuMarkIdentification();
-
-        //vumark.runOpMode();
-        // enter loop
-
-
-        // move forward 18 inches
-        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
-
-        // turn 90deg left
-        //encoderDrive(TURN_SPEED, -12, 12, 0);
-
-        // move forward 18 inches
-        //encoderDrive(DRIVE_SPEED, 18, 18, 0);
-        /*
-        bot.clamp.setPosition(0);
-
-        bot.arm.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm.setPower(0);
-
-        encoderDrive(DRIVE_SPEED, -24, -24, 0);
-
-        bot.arm2.setPower(1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(-1);
-
-        try {
-            wait(500);
-        }
-        catch (Exception e){}
-
-        bot.arm2.setPower(0);
-
-        encoderDrive(DRIVE_SPEED, -6, -6, 0); */
-
-
-
-
+        telemetry.addData("red: ","%d", red);
+        telemetry.addData("blue: ", "%d", blue);
+        telemetry.addData   ("green: ", "%d", green);
     }
-
+/*
     public void encoderDrive(double speed, double leftInches, double rightInches, double timeoutSeconds) {
         int newLeftTarget, newRightTarget;
 
@@ -167,6 +91,6 @@ public class AutoEncoderLeftRed extends LinearOpMode {
             bot.ld.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             bot.rd.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         }
-    }
+    }*/
 }
 
